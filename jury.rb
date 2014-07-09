@@ -1,5 +1,3 @@
-class Jury
-
-  MAX_POINT = 10
+class Jury < Person
 
 end
