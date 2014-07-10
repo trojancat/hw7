@@ -1,3 +1,4 @@
+# Персонаж. Родительский класс для претендента и члена жюри
 class Person
   attr_accessor :name, :gender
 

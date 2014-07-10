@@ -12,6 +12,7 @@ require_relative 'classes/role'
 roles = [
   # мужские
   Role.new('Кощей', :man, 40),
+#=begin
   Role.new('Питер Пен', :man, 10, 16),
   Role.new('Принцесса', :man, 16, 25),
   Role.new('Джек Воробей', :man, 25, 40),
@@ -22,11 +23,13 @@ roles = [
   Role.new('Золушка', :woman, 16, 22),
   Role.new('Дюймовочка', :woman, 8, 12),
   Role.new('Лара Крофт', :woman, 25, 35),
+#=end
 ]
 
 # Претенденты
 challengers = [
     Challenger.new('Вася', :man, 20),
+#=begin
     Challenger.new('Петя', :man, 10),
     Challenger.new('Марат', :man, 16),
     Challenger.new('Кирилл', :man, 32),
@@ -46,6 +49,7 @@ challengers = [
     Challenger.new('Яна', :woman, 38),
     Challenger.new('Олеся', :woman, 17),
     Challenger.new('Венера', :woman, 48),
+#=end
 ]
 
 # Судейская комиссия
@@ -67,6 +71,11 @@ casting = Casting.new(roles, challengers, juries)
 
 # Результаты кастинга
 puts casting.casing_result.inspect
+
+#Тестирование
+#challenger = Challenger.new('Вася', :man, 20)
+#role = Role.new('Кощей', :man, 18, 60)
+#puts casting.suit?(challenger, role)
 
 # наиболее подходящая роль для выступающего
 #puts casting.suitable_role('Вася')

@@ -1,3 +1,4 @@
+# Выступление
 class Act
   attr_accessor :theme, :duration, :text
 
@@ -6,5 +7,5 @@ class Act
     @duration = duration
     @text = text
   end
-  
+
 end

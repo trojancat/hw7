@@ -1,3 +1,4 @@
+# Роль
 class Role
   attr_accessor :gender, :min_age, :max_age, :title
 
@@ -6,16 +7,6 @@ class Role
     @gender = gender
     @min_age = min_age
     @max_age = max_age
-  end
-
-  # Is age correct?
-  def age_correct?
-    
-  end
-
-  # Is a woman role?
-  def is_woman_role?
-    
   end
 
 end
