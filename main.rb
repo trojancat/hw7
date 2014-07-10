@@ -71,7 +71,10 @@ casting = Casting.new(roles, challengers, juries)
 
 # Результаты кастинга
 casting.casing_result.inspect
-puts casting.casing_result.inspect
+#puts casting.casing_result.inspect
 
 # Наиболее подходящая роль для выступающего
 puts casting.suitable_role('Лиза')
+
+# Общая продолжительность выступлений
+puts 'Общая проложительность выступлений: ' + casting.sum_act_duration('Лиза').to_s

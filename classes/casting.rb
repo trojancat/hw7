@@ -19,6 +19,7 @@ class Casting
     # пробегаем по всем претендентам
     self.challengers.each do |c|
       box = []
+      sum_act_duration = 0;
       # пробегаем по всем ролям
       self.roles.each do |r|
         # если претендент подходит
@@ -29,13 +30,14 @@ class Casting
               Random.new.rand(1..100),
               IO.read('text.txt').split.shuffle![0..Random.new.rand(1..100)].join(' ')
           )
+          sum_act_duration += c.act.duration
           # получаем оценку судей
           box << { r.title => self.jury_evaluation(c, r) }
         #else
         #  box << { c.name => nil }
         end
       end
-      RESULT[c.name] = box
+      RESULT[c.name] = { roles: box, sum_act_duration: sum_act_duration}
     end
 
     RESULT
@@ -68,20 +70,21 @@ class Casting
   # Получить наиболее подходящую роль для претендента
   def suitable_role(name)
 
-    return 'Не подходит ни одна роль.' if self.casing_result[name].empty?
+    return 'Не подходит ни одна роль.' if self.casing_result[name][:roles].empty?
 
     max = {'none' => 0}
-    self.casing_result[name].each do |r|
+    self.casing_result[name][:roles].each do |r|
+      puts r.inspect
       max = r if r.values.first > max.values.first
     end
 
-    return 'Наиболее подходящая роль = ' + max.to_s + '.'
+    return 'Наиболее подходящая роль: ' + max.keys.first.to_s + '.'
 
   end
 
   # Общая продолжительность выступлений у претендента
   def sum_act_duration(name)
-
+    self.casing_result[name][:sum_act_duration]
   end
 
 
