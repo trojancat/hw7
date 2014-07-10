@@ -65,19 +65,24 @@ class Casting
     (sum_point / self.juries.count).round
   end
 
-  # Получить наиболее подходящую роль по имени претендента
+  # Получить наиболее подходящую роль для претендента
   def suitable_role(name)
-    #TODO проверка
+
+    return 'Не подходит ни одна роль.' if self.casing_result[name].empty?
+
     max = {'none' => 0}
     self.casing_result[name].each do |r|
-      puts r.inspect
-      if r.values.first > max.values.first
-        max = r
-      end
+      max = r if r.values.first > max.values.first
     end
 
-    return max
+    return 'Наиболее подходящая роль = ' + max.to_s + '.'
 
   end
+
+  # Общая продолжительность выступлений у претендента
+  def sum_act_duration(name)
+
+  end
+
 
 end

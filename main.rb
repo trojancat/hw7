@@ -71,7 +71,7 @@ casting = Casting.new(roles, challengers, juries)
 
 # Результаты кастинга
 casting.casing_result.inspect
-#puts casting.casing_result.inspect
+puts casting.casing_result.inspect
 
 # Наиболее подходящая роль для выступающего
-puts 'Наиболее подходящая роль = ' + casting.suitable_role('Лиза').to_s
+puts casting.suitable_role('Лиза')
