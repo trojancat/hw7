@@ -14,7 +14,7 @@ roles = [
   Role.new('Кощей', :man, 40),
 #=begin
   Role.new('Питер Пен', :man, 10, 16),
-  Role.new('Принцесса', :man, 16, 25),
+  Role.new('Безумный шляпник', :man, 16, 25),
   Role.new('Джек Воробей', :man, 25, 40),
   Role.new('Бетман', :man, 30, 45),
   # женские
@@ -70,12 +70,8 @@ juries = [
 casting = Casting.new(roles, challengers, juries)
 
 # Результаты кастинга
-puts casting.casing_result.inspect
+casting.casing_result.inspect
+#puts casting.casing_result.inspect
 
-#Тестирование
-#challenger = Challenger.new('Вася', :man, 20)
-#role = Role.new('Кощей', :man, 18, 60)
-#puts casting.suit?(challenger, role)
-
-# наиболее подходящая роль для выступающего
-#puts casting.suitable_role('Вася')
+# Наиболее подходящая роль для выступающего
+puts 'Наиболее подходящая роль = ' + casting.suitable_role('Лиза').to_s
